@@ -1,0 +1,475 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Pr&aacute;ctica 6: Sistemas diferenciales</title><meta name="generator" content="MATLAB 9.5"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2019-11-19"><meta name="DC.source" content="Completo.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>Pr&aacute;ctica 6: Sistemas diferenciales</h1><!--introduction--><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Integrantes</a></li><li><a href="#2">Objetivos:</a></li><li><a href="#4">Introducci&oacute;n</a></li><li><a href="#5">FUNCION</a></li><li><a href="#6">PUNTO 1</a></li><li><a href="#7">PUNTO 2</a></li><li><a href="#8">PUNTO 3</a></li><li><a href="#9">PUNTO  4</a></li><li><a href="#10">PUNTO  5</a></li><li><a href="#11">PUNTO 6</a></li><li><a href="#12">PUNTO 7</a></li></ul></div><h2 id="1">Integrantes</h2><p>Silverio Jim&eacute;nez Cesar Antonio</p><p>Hernandez Lugardo Luis Enrique</p><h2 id="2">Objetivos:</h2><div><ul><li>Conocer comandos para obtener las funciones de respuesta de un sistema</li><li>Graficar las expresiones de respuesta</li></ul></div><h2 id="4">Introducci&oacute;n</h2><p>En esta practica se mostrar&aacute; como un programa resuelve sistemas diferenciales de orden n mediante la transformada de Laplace y Fourier, el programa despliega la funci&oacute;n de trasnferencia, la respuesta al impulso, la respuesta a entrada cero, la respuesta a estado cero, la respuesta total con condiciones iniciales y las gr&aacute;ficas correspondientes</p><h2 id="5">FUNCION</h2><p><img src="Completo_eq01882272823530158699.png" alt="$$ y^2+y^1+y =x $$"></p><p>Condiciones Iniciales</p><p><img src="Completo_eq04370884184659556509.png" alt="$$ \\ y^1(0)=-1 \\ $$"></p><p><img src="Completo_eq09141922804312537356.png" alt="$$   \\y(0)=1 \\  $$"></p><p><img src="Completo_eq12428326565912578270.png" alt="$$ \\ x(t)=exp(-t)u(t) $$"></p><h2 id="6">PUNTO 1</h2><p>Muestra la funci&oacute;n de transferencia del sistema</p><p><img src="Completo_eq07288448500366789525.png" alt="$$ \frac{1}{S^2+S+1} $$"></p><pre class="codeinput">n=[1];
+d=[1 1 1];
+G=tf(n,d)
+pole(G);
+step(G);
+</pre><pre class="codeoutput">
+G =
+ 
+       1
+  -----------
+  s^2 + s + 1
+ 
+Continuous-time transfer function.
+
+</pre><img vspace="5" hspace="5" src="Completo_01.png" alt=""> <h2 id="7">PUNTO 2</h2><p>Se muestra la respuesta al impulso del sistema</p><pre class="codeinput">syms <span class="string">t</span>
+transFourierImpulse([1 1 1],[1],dirac(t),10)
+</pre><pre class="codeoutput"> 
+APLICAMOS TRANSFORMADA DE FOURIER
+ 
+        2
+Y(w) - w  Y(w) + w Y(w) 1i
+
+=
+X(w)
+
+ 
+SUBSTITUIMOS LA TRANSFORMADA DE LA ENTRADA
+ 
+        2
+Y(w) - w  Y(w) + w Y(w) 1i
+
+=
+1
+
+ 
+DESPEJAMOS Y(w)
+ 
+Y(w)=
+       1
+---------------
+   2
+- w  + w 1i + 1
+
+ 
+DESARROLLAMOS LAS FRACCIONES PARCIALES DE Y(w)
+ 
+Y(w)=
+       1
+---------------
+   2
+- w  + w 1i + 1
+
+ 
+Aplicamos transformada inversa, asi la soluci&oacute;n es
+ 
+y(t)=
+/         /       /   t (sqrt(3) - i) 1i \
+| sqrt(3) | pi exp| - ------------------ | (sign(t) + 1)
+\         \       \            2         /
+
+              / t (sqrt(3) + 1i) 1i \                  \ \
+   1i - pi exp| ------------------- | (sign(t) + 1) 1i | |/(6 pi)
+              \          2          /                  / /
+
+</pre><img vspace="5" hspace="5" src="Completo_02.png" alt=""> <h2 id="8">PUNTO 3</h2><pre>Se muestra la respuesta a entrada cero del sistema</pre><pre class="codeinput">syms <span class="string">t</span>
+transLaplaceCero([1 1 1],[1],[1 -1],[0],0*t,10)
+</pre><pre class="codeoutput"> 
+APLICAMOS TRANSFORMADA DE LAPLACE y substituimos condiciones iniciales
+ 
+                     2
+Y(s) - s + s Y(s) + s  Y(s)
+
+=
+X(s)
+
+ 
+SUBSTITUIMOS LA TRANSFORMADA DE LA ENTRADA
+ 
+                     2
+Y(s) - s + s Y(s) + s  Y(s)
+
+=
+0
+
+ 
+DESPEJAMOS Y(s)
+ 
+Y(s)=
+     s
+----------
+ 2
+s  + s + 1
+
+ 
+DESARROLLAMOS LAS FRACCIONES PARCIALES DE Y(s)
+ 
+Y(s)=
+     s
+----------
+ 2
+s  + s + 1
+
+ 
+Aplicamos transformada inversa, asi la soluci&oacute;n es:
+ 
+y(t)=
+           /                               / sqrt(3) t \ \
+           |                    sqrt(3) sin| --------- | |
+   /   t \ |    / sqrt(3) t \              \     2     / |
+exp| - - | | cos| --------- | - ------------------------ |
+   \   2 / \    \     2     /               3            /
+
+ 
+Representa la respuesta de la entrada cero
+ 
+</pre><img vspace="5" hspace="5" src="Completo_03.png" alt=""> <h2 id="9">PUNTO  4</h2><pre>Se muestra la respuesta a estado cero del sistema</pre><pre class="codeinput">syms <span class="string">t</span>
+transLaplaceCeroState([1 1 1],[1],[0 0],[0],exp(-t)*heaviside(t),10)
+</pre><pre class="codeoutput"> 
+APLICAMOS TRANSFORMADA DE LAPLACE y substituimos condiciones iniciales
+ 
+                 2
+Y(s) + s Y(s) + s  Y(s)
+
+=
+X(s)
+
+ 
+SUBSTITUIMOS LA TRANSFORMADA DE LA ENTRADA
+ 
+                 2
+Y(s) + s Y(s) + s  Y(s)
+
+=
+  1
+-----
+s + 1
+
+ 
+DESPEJAMOS Y(s)
+ 
+Y(s)=
+          1
+--------------------
+          2
+(s + 1) (s  + s + 1)
+
+ 
+DESARROLLAMOS LAS FRACCIONES PARCIALES DE Y(s)
+ 
+Y(s)=
+  1          s
+----- - ----------
+s + 1    2
+        s  + s + 1
+
+ 
+Aplicamos transformada inversa, asi la soluci&oacute;n es:
+ 
+y(t)=
+                     /                               / sqrt(3) t \ \
+                     |                    sqrt(3) sin| --------- | |
+             /   t \ |    / sqrt(3) t \              \     2     / |
+exp(-t) - exp| - - | | cos| --------- | - ------------------------ |
+             \   2 / \    \     2     /               3            /
+
+</pre><img vspace="5" hspace="5" src="Completo_04.png" alt=""> <h2 id="10">PUNTO  5</h2><pre>Se muestra la respuesta total del sistema</pre><pre class="codeinput">syms <span class="string">t</span>
+transLaplaceCeroState([1 1 1],[1],[1 -1],[0],exp(-t)*heaviside(t),10)
+</pre><pre class="codeoutput"> 
+APLICAMOS TRANSFORMADA DE LAPLACE y substituimos condiciones iniciales
+ 
+                     2
+Y(s) - s + s Y(s) + s  Y(s)
+
+=
+X(s)
+
+ 
+SUBSTITUIMOS LA TRANSFORMADA DE LA ENTRADA
+ 
+                     2
+Y(s) - s + s Y(s) + s  Y(s)
+
+=
+  1
+-----
+s + 1
+
+ 
+DESPEJAMOS Y(s)
+ 
+Y(s)=
+  1
+-----
+s + 1
+
+ 
+DESARROLLAMOS LAS FRACCIONES PARCIALES DE Y(s)
+ 
+Y(s)=
+  1
+-----
+s + 1
+
+ 
+Aplicamos transformada inversa, asi la soluci&oacute;n es:
+ 
+y(t)=
+exp(-t)
+
+</pre><img vspace="5" hspace="5" src="Completo_05.png" alt=""> <h2 id="11">PUNTO 6</h2><p>Se muestra la respuesta total al escal&oacute;n unitario con condiciones iniciales cero</p><pre class="codeinput">transLaplaceCeroState([1 1 1],[1],[0 0],[0],heaviside(t),10)
+</pre><pre class="codeoutput"> 
+APLICAMOS TRANSFORMADA DE LAPLACE y substituimos condiciones iniciales
+ 
+                 2
+Y(s) + s Y(s) + s  Y(s)
+
+=
+X(s)
+
+ 
+SUBSTITUIMOS LA TRANSFORMADA DE LA ENTRADA
+ 
+                 2
+Y(s) + s Y(s) + s  Y(s)
+
+=
+1
+-
+s
+
+ 
+DESPEJAMOS Y(s)
+ 
+Y(s)=
+     1
+-----------
+ 3    2
+s  + s  + s
+
+ 
+DESARROLLAMOS LAS FRACCIONES PARCIALES DE Y(s)
+ 
+Y(s)=
+1      s + 1
+- - ----------
+s    2
+    s  + s + 1
+
+ 
+Aplicamos transformada inversa, asi la soluci&oacute;n es:
+ 
+y(t)=
+               /                               / sqrt(3) t \ \
+               |                    sqrt(3) sin| --------- | |
+       /   t \ |    / sqrt(3) t \              \     2     / |
+1 - exp| - - | | cos| --------- | + ------------------------ |
+       \   2 / \    \     2     /               3            /
+
+</pre><img vspace="5" hspace="5" src="Completo_06.png" alt=""> <h2 id="12">PUNTO 7</h2><p>Se muestra las respuestas simb&oacute;licas y gr&aacute;ficas en un subplot</p><pre class="codeinput">sistemas( [1 1 1],[1],[1 -1],[0],exp(-t)*heaviside(t),10 )
+</pre><pre class="codeoutput"> 
+Funci&oacute;n de transferencia del sistema
+ 
+     1
+----------
+ 2
+s  + s + 1
+
+ 
+Respuesta al impulso del sistema
+ 
+           /   t \    / sqrt(3) t \
+sqrt(3) exp| - - | sin| --------- | 2
+           \   2 /    \     2     /
+-------------------------------------
+                  3
+
+ 
+Respuesta a entrada cero del sistema
+ 
+           /                               / sqrt(3) t \ \
+           |                    sqrt(3) sin| --------- | |
+   /   t \ |    / sqrt(3) t \              \     2     / |
+exp| - - | | cos| --------- | - ------------------------ |
+   \   2 / \    \     2     /               3            /
+
+ 
+Respuesta a estado cero del sistema
+ 
+                     /                               / sqrt(3) t \ \
+                     |                    sqrt(3) sin| --------- | |
+             /   t \ |    / sqrt(3) t \              \     2     / |
+exp(-t) - exp| - - | | cos| --------- | - ------------------------ |
+             \   2 / \    \     2     /               3            /
+
+ 
+Respuesta total del sistema
+ 
+exp(-t)
+
+ 
+Respuesta al escal&oacute;n unitario del sistema
+ 
+               /                               / sqrt(3) t \ \
+               |                    sqrt(3) sin| --------- | |
+       /   t \ |    / sqrt(3) t \              \     2     / |
+1 - exp| - - | | cos| --------- | + ------------------------ |
+       \   2 / \    \     2     /               3            /
+
+</pre><img vspace="5" hspace="5" src="Completo_07.png" alt=""> <p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2018b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Práctica 6: Sistemas diferenciales
+%% Integrantes
+%
+% Silverio Jiménez Cesar Antonio
+%
+% Hernandez Lugardo Luis Enrique
+%
+%% Objetivos:
+% * Conocer comandos para obtener las funciones de respuesta de un sistema
+% * Graficar las expresiones de respuesta
+% 
+%%
+%% Introducción
+% En esta practica se mostrará como un programa resuelve sistemas
+% diferenciales de orden n mediante la transformada de Laplace y Fourier, el
+% programa despliega la función de trasnferencia, la respuesta al impulso,
+% la respuesta a entrada cero, la respuesta a estado cero, la respuesta
+% total con condiciones iniciales y las gráficas correspondientes
+
+%% FUNCION 
+% $$ y^2+y^1+y =x $$
+%
+% Condiciones Iniciales 
+% 
+% $$ \\ y^1(0)=-1 \\ $$
+%
+% $$   \\y(0)=1 \\  $$
+%
+% $$ \\ x(t)=exp(-t)u(t) $$
+%
+% 
+%
+
+%% PUNTO 1 
+%
+% Muestra la función de transferencia del sistema
+%
+%
+% $$ \frac{1}{S^2+S+1} $$
+n=[1];
+d=[1 1 1];
+G=tf(n,d)
+pole(G);
+step(G);
+%% PUNTO 2 
+%
+% Se muestra la respuesta al impulso del sistema
+%
+%
+syms t
+transFourierImpulse([1 1 1],[1],dirac(t),10)
+
+%% PUNTO 3 
+%
+%
+%  Se muestra la respuesta a entrada cero del sistema
+%
+%
+syms t
+transLaplaceCero([1 1 1],[1],[1 -1],[0],0*t,10)
+
+
+%% PUNTO  4
+%
+%
+%  Se muestra la respuesta a estado cero del sistema
+%
+%
+syms t
+transLaplaceCeroState([1 1 1],[1],[0 0],[0],exp(-t)*heaviside(t),10)
+
+%% PUNTO  5
+%
+%
+%  Se muestra la respuesta total del sistema
+%
+%
+syms t
+transLaplaceCeroState([1 1 1],[1],[1 -1],[0],exp(-t)*heaviside(t),10)
+
+%% PUNTO 6
+%
+% Se muestra la respuesta total al escalón unitario con condiciones iniciales
+% cero
+%
+transLaplaceCeroState([1 1 1],[1],[0 0],[0],heaviside(t),10)
+
+%% PUNTO 7
+%
+% Se muestra las respuestas simbólicas y gráficas en un subplot
+%
+sistemas( [1 1 1],[1],[1 -1],[0],exp(-t)*heaviside(t),10 )
+
+
+
+##### SOURCE END #####
+--></body></html>
